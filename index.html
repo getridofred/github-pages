@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>罷洪！刻不容楷 官方網站 - 第三階段罷免投票</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            /* Inspired by logo: main red, accent yellow, dark text */
+            --primary-red: #D93A3E; /* Approximate red from logo */
+            --accent-yellow: #F7D038; /* Approximate yellow from logo */
+            --dark-text: #333333; /* Dark grey/black for text */
+            --light-bg: #f8f9fa; /* Light background for contrast */
+            --white-text: #ffffff;
+        }
+        .hero-bg {
+            /* Consider a background that complements the logo, or a relevant campaign image */
+            background-image: url('https://placehold.co/1200x600/4A5568/E2E8F0?text=公民力量+%E關鍵一票'); /* 替換為實際圖片 */
+            background-size: cover;
+            background-position: center;
+        }
+        .section-title {
+            /* 更新：放大字級並調整下方間距 */
+            @apply text-4xl md:text-5xl font-bold text-center mb-10 md:mb-12;
+            color: var(--primary-red); /* Use primary red for titles */
+        }
+        .nav-link {
+            @apply px-4 py-2 hover:bg-red-100 rounded-md transition-colors;
+            color: var(--dark-text); /* Dark text for nav links */
+        }
+        .nav-link:hover {
+            color: var(--primary-red);
+        }
+        .cta-button {
+            @apply text-white font-bold py-3 px-6 rounded-lg shadow-md transition-transform transform hover:scale-105;
+            background-color: var(--primary-red); /* Primary red for main CTA */
+        }
+        .cta-button:hover {
+            background-color: #B92B2E; /* Darker shade of primary red on hover */
+        }
+        .secondary-cta-button {
+            @apply text-white font-bold py-3 px-6 rounded-lg shadow-md transition-transform transform hover:scale-105;
+            background-color: var(--dark-text); /* Dark grey for secondary CTA */
+        }
+        .secondary-cta-button:hover {
+            background-color: #555555; /* Darker grey on hover */
+        }
+        .card {
+            @apply bg-white p-6 rounded-xl shadow-lg;
+        }
+        details > summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 1rem;
+            background-color: #f3f4f6; /* Tailwind gray-100 */
+            border-radius: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--dark-text);
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+        details[open] > summary {
+            background-color: #e5e7eb; /* Tailwind gray-200 */
+            color: var(--primary-red);
+        }
+        .faq-arrow::before {
+            content: '▼';
+            display: inline-block;
+            transition: transform 0.3s ease-in-out;
+        }
+        details[open] .faq-arrow::before {
+            transform: rotate(180deg);
+        }
+        .highlight-yellow {
+            color: var(--accent-yellow);
+            /* If yellow text is hard to read on light backgrounds, consider a darker yellow or a background for it */
+        }
+        .bg-highlight-yellow {
+            background-color: var(--accent-yellow);
+            color: var(--dark-text); /* Ensure text on yellow bg is readable */
+        }
+        .text-primary-red {
+            color: var(--primary-red);
+        }
+        .text-dark {
+            color: var(--dark-text);
+        }
+        .bg-light {
+            background-color: var(--light-bg);
+        }
+    </style>
+</head>
+<body class="bg-light text-dark">
+
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-3 flex flex-wrap justify-between items-center">
+            <a href="#home" class="flex items-center">
+                <img src="LOGO去被-01.png" alt="罷洪！刻不容楷 Logo" class="h-10 mr-3 md:h-12" onerror="this.alt='圖片載入失敗：罷洪Logo'; this.src='https://placehold.co/150x50/ffffff/D93A3E?text=罷洪！刻不容楷';">
+                </a>
+            <button id="mobile-menu-button" class="md:hidden block text-dark focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+            <div id="mobile-menu" class="hidden md:flex md:items-center w-full md:w-auto mt-4 md:mt-0">
+                <ul class="flex flex-col md:flex-row md:space-x-2">
+                    <li><a href="#home" class="nav-link">首頁</a></li>
+                    <li><a href="#why-recall" class="nav-link">為什麼要罷免？</a></li>
+                    <li><a href="#voting-guide" class="nav-link">投票指南</a></li>
+                    <li><a href="#latest-updates" class="nav-link">最新消息</a></li>
+                    <li><a href="#about-us" class="nav-link">關於我們</a></li>
+                    <li><a href="#contact-us" class="nav-link">聯絡我們</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero-bg text-white min-h-[calc(100vh-76px)] md:min-h-[calc(100vh-84px)] flex items-center justify-center py-20">
+            <div class="bg-black bg-opacity-70 p-8 md:p-12 rounded-xl text-center max-w-3xl mx-auto">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">第三階段：你的<span style="color: var(--accent-yellow);">同意票</span>是關鍵！</h1>
+                <p class="text-xl md:text-2xl mb-2">洪孟楷罷免投票日 <span class="font-bold" style="color: var(--accent-yellow);">[待選委會正式公告日期]</span></p>
+                <p class="text-lg md:text-xl mb-4">請務必投下 <span class="font-bold text-2xl" style="color: var(--accent-yellow);">同意票</span>，完成公民監督！</p>
+                <p class="text-md md:text-lg mb-8 p-3 rounded-md font-semibold bg-highlight-yellow">七月下旬或八月初的週末，請留在戶籍地！<br><span class="text-sm">(此為預估時間，最終日期以選委會公告為準)</span></p>
+
+                <div class="grid md:grid-cols-2 gap-6 text-left text-base">
+                    <div class="bg-slate-700 bg-opacity-80 p-4 rounded-lg">
+                        <h3 class="font-bold text-lg mb-2" style="color: var(--accent-yellow);">目前進度</h3>
+                        <p>已成功完成第二階段連署送件，感謝所有連署支持者！現已進入最關鍵的第三階段投票。</p>
+                    </div>
+                    <div class="bg-slate-700 bg-opacity-80 p-4 rounded-lg">
+                        <h3 class="font-bold text-lg mb-2" style="color: var(--accent-yellow);">投票重要性</h3>
+                        <p>罷免案通過需「同意票多於不同意票」且「同意票數達選區總選舉人總數的 <span class="font-bold">25%</span> 以上」。<br>本區需要 <span class="font-bold text-2xl" style="color: var(--accent-yellow);">96,909</span> 張同意票！</p>
+                    </div>
+                </div>
+                 <div class="mt-10">
+                    <a href="#voting-guide" class="cta-button mr-4 mb-4 md:mb-0 inline-block">前往投票指南</a>
+                    <a href="#why-recall" class="secondary-cta-button inline-block">了解罷免原因</a>
+                </div>
+                <div class="mt-8 text-slate-200">
+                    <h3 class="font-bold text-xl mb-2">最新消息預覽</h3>
+                    <p>密切關注選委會關於投票日期的正式公告！</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="why-recall" class="py-16 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">為什麼要罷免洪孟楷？</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="card">
+                        <h3 class="text-xl font-semibold mb-3 text-primary-red">支持國會擴權</h3>
+                        <p class="text-dark">洪孟楷委員支持國會擴權等爭議法案，可能侵害人民權益，引發社會對立。</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="text-xl font-semibold mb-3 text-primary-red">刪減民生預算</h3>
+                        <p class="text-dark">其立場支持大幅刪減中央政府總預算，恐影響教育、社福等重要民生支出。</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="text-xl font-semibold mb-3 text-primary-red">涉嫌圖利特定人士</h3>
+                        <p class="text-dark">相關行為引發圖利特定人士或團體，以及違背多數民意的疑慮。</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="text-xl font-semibold mb-3 text-primary-red">服從黨意罔顧民意</h3>
+                        <p class="text-dark">多次表決立場與主流民意相左，優先服從黨意而非選民託付。</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="text-xl font-semibold mb-3 text-primary-red">家族背景疑慮</h3>
+                        <p class="text-dark">（此處可補充罷免團體認定之家族背景相關具體疑慮，若無則可移除此項或修改）</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="text-xl font-semibold mb-3" style="color: var(--primary-red);">公民行使監督權</h3>
+                        <p class="text-dark">罷免是憲法賦予公民的基本權利，用以監督民選代議士，落實主權在民的民主價值。</p>
+                    </div>
+                </div>
+                <p class="mt-8 text-center text-lg text-dark">以上行為已嚴重損害選民權益，違背民主價值。我們呼籲所有選民，共同行使公民監督的權利！</p>
+            </div>
+        </section>
+
+        <section id="voting-guide" class="py-16 bg-light">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">投票指南</h2>
+                <div class="grid md:grid-cols-2 gap-8 items-start">
+                    <div class="card">
+                        <h3 class="text-xl font-semibold mb-4" style="color: var(--primary-red);">罷免投票流程</h3>
+                        <ol class="list-decimal list-inside space-y-2 text-dark">
+                            <li>收到投票通知單。</li>
+                            <li>攜帶國民身分證、印章（建議攜帶）前往戶籍地投票所。</li>
+                            <li>領取罷免票。</li>
+                            <li>於「同意罷免」欄位圈選。</li>
+                            <li>將罷免票投入票匭。</li>
+                        </ol>
+                        <p class="mt-4 text-sm text-slate-600">* 詳細流程以選委會公告為準。</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="text-xl font-semibold mb-4" style="color: var(--primary-red);">投票重要資訊</h3>
+                        <p class="mb-2 text-dark"><strong class="text-primary-red">投票地點：</strong>您的戶籍地投票所。</p>
+                        <p class="mb-2 text-dark"><strong class="text-primary-red">投票時間：</strong>[待選委會正式公告日期及時間]</p>
+                        <p class="mb-2 text-dark"><strong class="text-primary-red">投票門檻：</strong></p>
+                        <ul class="list-disc list-inside ml-4 text-dark">
+                            <li>同意票數必須多於不同意票數。</li>
+                            <li>且同意票數需達到該選區選舉人總數的 1/4 (25%) 以上。</li>
+                            <li>本區罷免門檻票數為：<span class="font-bold text-xl" style="color: var(--primary-red);">96,909</span> 票。</li>
+                        </ul>
+                        <p class="mt-2 text-sm text-slate-600">近期遷戶籍者請注意：投票日前20日內遷出戶籍者，仍應在原選舉區投票所投票。</p>
+                         <p class="mt-4"><a href="#" class="hover:underline" style="color: var(--primary-red);">[連結至選委會投票所查詢系統（若有）]</a></p>
+                    </div>
+                </div>
+
+                <div class="mt-12">
+                    <h3 class="text-2xl font-bold text-center mb-6 text-primary-red">常見問題 (Q&A)</h3>
+                    <div class="space-y-4 max-w-3xl mx-auto">
+                        <details class="faq-item">
+                            <summary>我不住在戶籍地怎麼辦？<span class="faq-arrow"></span></summary>
+                            <div class="p-4 bg-white rounded-b-lg border border-t-0 border-gray-200 text-dark">
+                                <p>罷免投票原則上必須在您的戶籍所在地投票所進行。若您投票日當天無法返回戶籍地，目前法規未提供外地投票或通訊投票的選項。請提前規劃行程，務必返回戶籍地投下神聖一票。</p>
+                            </div>
+                        </details>
+                        <details class="faq-item">
+                            <summary>我沒有收到投票通知單怎麼辦？<span class="faq-arrow"></span></summary>
+                            <div class="p-4 bg-white rounded-b-lg border border-t-0 border-gray-200 text-dark">
+                                <p>即使沒有收到投票通知單，只要您是該選區的合格選舉人，仍可憑國民身分證前往戶籍地投票所投票。您可以先向戶籍所在地的戶政事務所或鄉鎮市區公所查詢您的投票所地點。投票通知單主要功能是通知，並非投票的必要文件。</p>
+                            </div>
+                        </details>
+                        <details class="faq-item">
+                            <summary>投票時要注意什麼？<span class="faq-arrow"></span></summary>
+                            <div class="p-4 bg-white rounded-b-lg border border-t-0 border-gray-200 text-dark">
+                                <ul class="list-disc list-inside space-y-1">
+                                    <li>務必攜帶國民身分證。</li>
+                                    <li>建議攜帶個人印章（若忘記帶，可以簽名代替）。</li>
+                                    <li>不可攜帶手機或其他攝影器材進入投票記載處。</li>
+                                    <li>不可撕毀或攜出罷免票。</li>
+                                    <li>不可在投票所內喧嘩或有任何競助選行為。</li>
+                                    <li>圈選時請使用投票所提供的圈選工具，並確保圈選在「同意罷免」欄格內。</li>
+                                </ul>
+                            </div>
+                        </details>
+                         <details class="faq-item">
+                            <summary>如果我是近期才搬家到這個選區，可以投票嗎？<span class="faq-arrow"></span></summary>
+                            <div class="p-4 bg-white rounded-b-lg border border-t-0 border-gray-200 text-dark">
+                                <p>根據選舉罷免法規定，選舉人必須在該選舉區繼續居住四個月以上，才具有投票權。若您遷入本選區的時間未滿四個月（以投票日前一日計算），則可能無法參與本次罷免投票。若您是從本選區遷出至其他地方，且遷出日在投票日前20日內，則仍應在原戶籍地（本選區）的投票所投票。</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="latest-updates" class="py-16 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">最新消息</h2>
+                <div class="space-y-8">
+                    <div class="card">
+                        <h3 class="text-xl font-semibold mb-2" style="color: var(--primary-red);">選委會正式公告投票日期與時間</h3>
+                        <p class="text-slate-500 text-sm mb-2">發布日期：[待公告]</p>
+                        <p class="text-dark">中央選舉委員會已正式公告洪孟楷委員罷免案第三階段投票日期為 [日期]，投票時間為上午 [時間] 至下午 [時間]。請各位公民準時投票！</p>
+                        <p class="mt-2"><a href="#" class="hover:underline" style="color: var(--primary-red);">[相關新聞稿連結]</a></p>
+                    </div>
+                    <div class="card">
+                        <h3 class="text-xl font-semibold mb-2" style="color: var(--primary-red);">罷免團體下鄉宣講活動開跑</h3>
+                        <p class="text-slate-500 text-sm mb-2">發布日期：[日期]</p>
+                        <p class="text-dark">為爭取更多公民支持，罷免團體將於下週起舉辦一系列下鄉宣講活動，詳細時間地點請見活動頁面。邀請大家踴躍參與，共同為罷免努力！</p>
+                        <p class="mt-2"><a href="#" class="hover:underline" style="color: var(--primary-red);">[活動詳情]</a></p>
+                    </div>
+                    <div class="card">
+                        <h3 class="text-xl font-semibold mb-2" style="color: var(--primary-red);">回應不實資訊：罷免行動不受阻撓</h3>
+                        <p class="text-slate-500 text-sm mb-2">發布日期：[日期]</p>
+                        <p class="text-dark">針對近期網路上流傳關於罷免行動的不實資訊，罷免團體特此澄清...。我們呼籲支持者保持理性，切勿輕信謠言，堅定支持罷免行動。</p>
+                        <p class="mt-2"><a href="#" class="hover:underline" style="color: var(--primary-red);">[完整聲明]</a></p>
+                    </div>
+                    </div>
+            </div>
+        </section>
+
+        <section id="about-us" class="py-16 bg-light">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">關於我們</h2>
+                <div class="max-w-3xl mx-auto text-center">
+                    <p class="text-lg mb-4 text-dark">我們是一群來自各行各業、關心台灣民主發展的公民。對於代議士洪孟楷委員的諸多行徑，我們認為已嚴重背離民意託付，損害選民權益。</p>
+                    <p class="text-lg mb-4 text-dark">本次罷免案領銜人為 <span class="font-semibold">方柏翔</span> 先生，並有眾多熱心志工的無私奉獻。我們的理念是「展現公民力量，強力監督代議士」，目標是成功通過罷免，讓代議士真正對選民負責。</p>
+                    <p class="text-lg mb-4 text-dark">從第一階段提議、第二階段艱辛的連署，到現在進入第三階段投票，每一步都仰賴廣大公民的支持與參與。感謝每一位連署人、每一位志工、每一位關心此案的朋友！</p>
+                    <p class="text-lg mb-6 text-dark">（可選擇性提及志工組成特色，例如：我們的志工團隊中有許多充滿熱情的30世代年輕人，共同為台灣的未來努力。）</p>
+                    <img src="https://placehold.co/600x300/94a3b8/e2e8f0?text=罷免團隊努力的身影" alt="[圖片：罷免團隊努力的身影]" class="mx-auto rounded-lg shadow-md mb-4" onerror="this.src='https://placehold.co/600x300/94a3b8/e2e8f0?text=圖片載入失敗'">
+                </div>
+            </div>
+        </section>
+
+        <section id="contact-us" class="py-16 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">聯絡我們</h2>
+                <div class="max-w-lg mx-auto card">
+                    <p class="text-lg mb-4 text-dark">若您對罷免行動有任何疑問、建議，或希望加入志工行列，歡迎透過以下方式與我們聯繫：</p>
+                    <ul class="space-y-3 text-dark">
+                        <li><strong>電子郵件：</strong> <a href="mailto:contact@recallhong.tw" class="hover:underline" style="color: var(--primary-red);">contact@recallhong.tw</a> (此為範例)</li>
+                        <li><strong>Facebook 粉絲專頁：</strong> <a href="#" class="hover:underline" style="color: var(--primary-red);">[罷免行動粉絲專頁連結]</a></li>
+                        <li><strong>實體辦公室/諮詢點：</strong> （若有，請提供地址及開放時間。注意選罷法相關規定。）<br>[範例：新北市林口區文化一路一段123號 (每日下午2點至晚上8點)]</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="downloads" class="py-16 bg-light">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">文宣素材下載</h2>
+                <p class="text-center text-lg mb-8 text-dark">感謝您協助宣傳！歡迎下載以下素材，提醒親友投票，一起完成公民監督！</p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="card text-center">
+                        <img src="https://placehold.co/300x200/D93A3E/ffffff?text=提醒投票日圖檔" alt="[圖片：提醒投票日圖檔]" class="mx-auto rounded-md mb-4" onerror="this.src='https://placehold.co/300x200/D93A3E/ffffff?text=圖片載入失敗'">
+                        <h3 class="text-xl font-semibold mb-2 text-primary-red">投票日期提醒圖</h3>
+                        <p class="text-sm text-slate-600 mb-3">提醒大家 [投票日期] 為罷免投票日！</p>
+                        <a href="#" class="font-bold py-2 px-4 rounded-lg transition-colors text-white" style="background-color: var(--primary-red); hover:background-color: #B92B2E;">下載圖片</a>
+                    </div>
+                    <div class="card text-center">
+                        <img src="https://placehold.co/300x200/333333/ffffff?text=圈選同意教學圖" alt="[圖片：圈選同意教學圖]" class="mx-auto rounded-md mb-4" onerror="this.src='https://placehold.co/300x200/333333/ffffff?text=圖片載入失敗'">
+                        <h3 class="text-xl font-semibold mb-2 text-primary-red">「同意罷免」教學圖</h3>
+                        <p class="text-sm text-slate-600 mb-3">清楚指引如何在罷免票上圈選「同意」。</p>
+                        <a href="#" class="font-bold py-2 px-4 rounded-lg transition-colors text-white" style="background-color: var(--primary-red); hover:background-color: #B92B2E;">下載圖片</a>
+                    </div>
+                    <div class="card text-center">
+                        <img src="https://placehold.co/300x200/F7D038/333333?text=公民監督標語圖" alt="[圖片：公民監督標語圖]" class="mx-auto rounded-md mb-4" onerror="this.src='https://placehold.co/300x200/F7D038/333333?text=圖片載入失敗'">
+                        <h3 class="text-xl font-semibold mb-2 text-primary-red">公民監督標語圖</h3>
+                        <p class="text-sm text-slate-600 mb-3">「關鍵一票，守護民主」等宣傳標語。</p>
+                        <a href="#" class="font-bold py-2 px-4 rounded-lg transition-colors text-white" style="background-color: var(--primary-red); hover:background-color: #B92B2E;">下載圖片</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer style="background-color: var(--dark-text);" class="text-slate-300 py-8 text-center">
+        <p>&copy; <span id="currentYear"></span> 罷洪！刻不容楷 行動聯盟 (此為範例名稱). All rights reserved.</p>
+        <p class="text-sm mt-2">本網站資訊僅供參考，罷免投票相關事宜請以中央選舉委員會正式公告為準。</p>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Adjust scroll to account for sticky header height
+                    const headerOffset = document.querySelector('header').offsetHeight;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+
+                    // If it's a mobile menu link, close the menu
+                    if (mobileMenu && !mobileMenu.classList.contains('hidden') && window.innerWidth < 768) {
+                         mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        const detailsElements = document.querySelectorAll('.faq-item');
+        detailsElements.forEach(details => {
+            details.addEventListener('toggle', event => {
+                if (details.open) {
+                    detailsElements.forEach(otherDetails => {
+                        if (otherDetails !== details && otherDetails.open) {
+                            // otherDetails.open = false; // Uncomment if you want only one open at a time
+                        }
+                    });
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>
